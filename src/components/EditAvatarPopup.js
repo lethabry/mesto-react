@@ -18,18 +18,17 @@ function EditAvatarPopup(props) {
     name: 'avatar',
     isOpen: props.isOpen,
     title: 'Обновить аватар',
-    children: <>
-      <input type="url" ref={avatarLink} name="link" placeholder="Ссылка на аватар" id="avatar-link-input"
-        className="popup__input popup__input_type_activity" required autoComplete="off" />
-      <span className="popup__error avatar-link-input-error"></span>
-    </>,
-    submitButtonTextContent: 'Сохранить',
+    submitButtonTextContent: props.isLoading ? 'Сохранение...' : 'Сохранить',
     onClosePopup: props.onClose,
     onSubmit: handleSubmit,
   }
 
   return (
-    <PopupWithForm {...popupEditAvatarProps} />
+    <PopupWithForm {...popupEditAvatarProps}>
+      <input type="url" ref={avatarLink} name="link" placeholder="Ссылка на аватар" id="avatar-link-input"
+        className="popup__input popup__input_type_activity" required autoComplete="off" />
+      <span className="popup__error avatar-link-input-error"></span>
+    </PopupWithForm>
   )
 }
 

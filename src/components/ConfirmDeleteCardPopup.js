@@ -12,7 +12,7 @@ function ConfirmDeleteCardPopup(props) {
     name: 'delete',
     isOpen: props.isOpen,
     title: 'Вы уверены?',
-    submitButtonTextContent: 'Да',
+    submitButtonTextContent: props.isLoading ? 'Удаление...' : 'Да',
     onClosePopup: props.onClose,
     onSubmit: handleSubmit
   }
